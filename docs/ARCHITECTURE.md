@@ -6,27 +6,27 @@ This describes the registered-account application and the separately isolated ju
 
 ```mermaid
 flowchart TB
-    subgraph Clients[Responsive browser workspaces]
-      P[Patient]
-      A[Care team]
-      H[Hospital]
-      T[Transport]
+    subgraph Clients["Responsive browser workspaces"]
+      P["Patient"]
+      A["Care team"]
+      H["Hospital"]
+      T["Transport"]
     end
-    Clients --> API[Workers API routes]
-    API --> S[Account session and role checks]
-    S --> V[Input validation and relationship scope]
-    V --> C[Pure domain commands]
-    V --> PLAN[Candidate generation and bounded planner]
-    C --> REV[Conditional revision write]
+    Clients --> API["Workers API routes"]
+    API --> S["Account session and role checks"]
+    S --> V["Input validation and relationship scope"]
+    V --> C["Pure domain commands"]
+    V --> PLAN["Candidate generation and bounded planner"]
+    C --> REV["Conditional revision write"]
     PLAN --> REV
-    REV --> DB[(D1 / SQLite)]
-    S --> FILES[Authorized document access]
-    FILES --> R2[(R2 object storage)]
-    Clients --> MAP[Explicit map lookup / Leaflet]
-    DEMO[Judge role switcher] --> DAPI[Separate demo API and session]
+    REV --> DB[("D1 / SQLite")]
+    S --> FILES["Authorized document access"]
+    FILES --> R2[("R2 object storage")]
+    Clients --> MAP["Explicit map lookup / Leaflet"]
+    DEMO["Judge role switcher"] --> DAPI["Separate demo API and session"]
     DAPI --> C
     DAPI --> PLAN
-    DAPI --> DSTATE[(Independent fictional district)]
+    DAPI --> DSTATE[("Independent fictional district")]
 ```
 
 React/TypeScript pages use Next-style routes through Vinext/Vite. Cloudflare Workers execute server code. D1 holds accounts, sessions, document metadata and versioned district snapshots; R2 holds document bytes. Local Wrangler emulates these bindings without a Cloudflare account.

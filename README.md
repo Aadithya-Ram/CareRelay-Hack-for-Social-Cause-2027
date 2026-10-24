@@ -26,20 +26,20 @@ All perspectives share one session-isolated fictional scenario. End and restart 
 
 ```mermaid
 flowchart LR
-    A[Register and apply] --> B[Admin approves membership]
-    B --> C[Patient submits dated request]
+    A["Register and apply"] --> B["Admin approves membership"]
+    B --> C["Patient submits dated request"]
     C --> D{Request checks}
-    D -->|Complete routine request| E[Automatic operational checks]
-    D -->|Flagged requirements| F[Staff review]
+    D -->|Complete routine request| E["Automatic operational checks"]
+    D -->|Flagged requirements| F["Staff review"]
     E --> G{Choose arrangement}
     F --> G
-    G --> H[Ranked manual options]
-    G --> I[Automatic suggestions]
-    H --> J[Admin approves]
+    G --> H["Ranked manual options"]
+    G --> I["Automatic suggestions"]
+    H --> J["Admin approves"]
     I --> J
-    J --> K[Required providers confirm]
-    K --> L[Patient reports ordered progress]
-    L --> M[Complete and retain history]
+    J --> K["Required providers confirm"]
+    K --> L["Patient reports ordered progress"]
+    L --> M["Complete and retain history"]
     M --> C
 ```
 
@@ -117,17 +117,17 @@ Routine operational checks do not attest clinical review. Flagged urgent/time-se
 
 ```mermaid
 flowchart TB
-    UI[React and TypeScript role workspaces] --> API[Workers API routes]
-    API --> AUTH[Account sessions, role and relationship checks]
-    AUTH --> VALIDATE[Zod validation and scoped actions]
-    VALIDATE --> DOMAIN[Requests, milestones and shared inbox]
-    VALIDATE --> SOLVER[Candidates and constraint search]
-    DOMAIN --> CAS[Revision-checked atomic update]
+    UI["React and TypeScript role workspaces"] --> API["Workers API routes"]
+    API --> AUTH["Account sessions, role and relationship checks"]
+    AUTH --> VALIDATE["Zod validation and scoped actions"]
+    VALIDATE --> DOMAIN["Requests, milestones and shared inbox"]
+    VALIDATE --> SOLVER["Candidates and constraint search"]
+    DOMAIN --> CAS["Revision-checked atomic update"]
     SOLVER --> CAS
-    CAS --> D1[(D1 / local SQLite)]
-    AUTH --> DOCS[Authorized document access]
-    DOCS --> R2[(R2 / local object storage)]
-    UI --> MAPS[Opt-in OpenStreetMap / Leaflet lookup]
+    CAS --> D1[("D1 / local SQLite")]
+    AUTH --> DOCS["Authorized document access"]
+    DOCS --> R2[("R2 / local object storage")]
+    UI --> MAPS["Opt-in OpenStreetMap / Leaflet lookup"]
 ```
 
 | Layer | Stack |
