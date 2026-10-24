@@ -1,6 +1,6 @@
 # HSC 2027 reviewer guide
 
-**Project:** CareRelay — Connecting Dialysis Slots and Accessible Transport in Tamil Nadu.
+**Project:** CareRelay — Connecting Dialysis Slots and Accessible Transport Across India.
 **Theme:** Healthcare, Wellbeing & Service Delivery.
 
 This guide maps the actual prototype and its evidence to the participant guidelines, particularly pages 8–10 (repository/submission requirements), 12–13 (judging), and 13–15 (open source, AI and earlier-submission disclosures). It is not a claim of organizer approval or guaranteed selection.
@@ -47,7 +47,7 @@ GitHub Pages alone cannot host the server-side API/database. The public source d
 
 The recorded final implementation passed 114 domain/manual tests, a matrix of 864 candidate-eligibility combinations, and 402 standard-mode API checks (the earlier 414-check mode included browser fixtures). These are software checks. The eight benchmark scenarios use synthetic data. They do not establish lives saved, missed-session reductions, adoption, clinical effectiveness or production scalability.
 
-A proposed Coimbatore pilot would compare confirmation latency and coordination burden with a consented baseline, record completed/cancelled/unresolved journeys separately, and investigate accessibility failures. Provider partnerships, clinical validation, independent security/privacy review and account-recovery improvements remain necessary before real-patient deployment.
+CareRelay is intended for use across India; Coimbatore is only one possible pilot location. An initial pilot would compare confirmation latency and coordination burden with a consented baseline, record completed/cancelled/unresolved journeys separately, and investigate accessibility failures. Provider partnerships, clinical validation, independent security/privacy review and account-recovery improvements remain necessary before real-patient deployment.
 
 ## Remaining submission artifacts
 

@@ -71,9 +71,17 @@ flowchart LR
 
 ## Built around the HSC social-cause brief
 
-**Theme:** Healthcare, Wellbeing & Service Delivery. **Proposed local focus:** Coimbatore and surrounding communities in Tamil Nadu. **Intended beneficiaries:** patients with disrupted dialysis appointments, caregivers, older adults and wheelchair users, alongside care coordinators and participating providers.
+**Theme:** Healthcare, Wellbeing & Service Delivery. **Intended scope:** communities across India. Coimbatore, Tamil Nadu is one possible initial pilot location, not a geographic restriction. **Intended beneficiaries:** patients with disrupted dialysis appointments, caregivers, older adults and wheelchair users, alongside care coordinators and participating providers.
 
-This proposal supports **SDG 3.8** (access to essential healthcare) and **SDG 10.2** (inclusion irrespective of age or disability). It does not claim measured progress against national SDG indicators. The government's dialysis-access programme already exists; CareRelay proposes a complementary coordination layer, not a replacement, affiliation or existing integration.
+### UN Sustainable Development Goals we aim to support
+
+| UN SDG | How CareRelay could contribute |
+| --- | --- |
+| [SDG 3 — Good Health and Well-being](https://sdgs.un.org/goals/goal3), particularly target 3.8 | Help patients coordinate access to suitable dialysis appointments and the transport needed to reach essential care. |
+| [SDG 10 — Reduced Inequalities](https://sdgs.un.org/goals/goal10), particularly target 10.2 | Include wheelchair, caregiver and assistance needs in eligibility checks, aiming to reduce coordination barriers for older adults, persons with disabilities and underserved communities. |
+| [SDG 17 — Partnerships for the Goals](https://sdgs.un.org/goals/goal17), particularly target 17.17 | Provide a shared coordination workflow that future hospital, transport, community and public-sector partnerships could use. This is an enabling opportunity; no existing partnership is claimed. |
+
+These are intended contributions, not measured SDG outcomes or UN endorsement. The government's dialysis-access programme already exists; CareRelay proposes a complementary coordination layer, not a replacement, affiliation or existing integration.
 
 | HSC evaluation criterion | What reviewers can inspect |
 | --- | --- |
@@ -86,7 +94,7 @@ This proposal supports **SDG 3.8** (access to essential healthcare) and **SDG 10
 
 ### A practical pilot, before any impact claim
 
-The proposed starting point is a small, coordinator-led partnership in Coimbatore: verify requirements with clinicians, onboard willing centres and drivers, compare against the existing coordination process, and evaluate a supervised pilot only after appropriate privacy and clinical approvals. **No hospital partnership, patient recruitment or field outcome is claimed.**
+The India-wide vision would begin with a small, coordinator-led pilot (for example, in Coimbatore): verify requirements with clinicians, onboard willing centres and drivers, compare against the existing coordination process, and evaluate a supervised pilot only after appropriate privacy and clinical approvals. **No hospital partnership, patient recruitment or field outcome is claimed.**
 
 | Proposed measure | How a pilot would assess it |
 | --- | --- |
@@ -96,7 +104,7 @@ The proposed starting point is a small, coordinator-led partnership in Coimbator
 | Accessibility failures | Review reasons for rejected routes/vehicles and caregiver/assistance mismatches. |
 | Coordination burden | Consented feedback from patients, caregivers and care teams, including time/calls spent. |
 
-A possible sustainability model is institution-supported hosting and onboarding, retaining open-source reuse. It is a proposal, not an implemented revenue model or promise of free clinical treatment. Tamil-language interfaces, assisted/low-connectivity workflows, road-routing and health-system integrations remain future work. Existing prototype scale bounds and security/clinical limits are documented in the audit.
+A possible sustainability model is institution-supported hosting and onboarding, retaining open-source reuse. It is a proposal, not an implemented revenue model or promise of free clinical treatment. Multilingual Indian-language interfaces, assisted/low-connectivity workflows, road-routing and health-system integrations remain future work. Existing prototype scale bounds and security/clinical limits are documented in the audit.
 
 [HSC reviewer guide](docs/HSC-REVIEWER-GUIDE.md) · [Submission answers](docs/HSC-FORM-ANSWERS.md) · [Research and sources](docs/HSC-RESEARCH.md) · [Screenshots](docs/HSC-SCREENSHOTS.md)
 
@@ -145,6 +153,8 @@ node scripts/start-local.mjs --no-open
 Keep the terminal open, then visit **http://127.0.0.1:8787/judge-demo** and use `admin@123` for the isolated fictional walkthrough. No environment file or manual database creation is needed. For the registered-account workflow, provision your own local care-team account at `/setup`; create patient/provider accounts at `/signup`.
 
 The launcher installs/builds on first use; it is not a preinstalled desktop executable. Local accounts/uploads remain on your computer and are not copied from the hosted service. Hosting your own public installation requires your own infrastructure/bindings and secure operator provisioning. [Setup and troubleshooting →](docs/QUICKSTART.md)
+
+Setup and environment/binding requirements are listed in the [reviewer guide environment table](docs/HSC-REVIEWER-GUIDE.md#local-environment), including local defaults and what changes for public deployment.
 
 ## Verification and feasibility
 
