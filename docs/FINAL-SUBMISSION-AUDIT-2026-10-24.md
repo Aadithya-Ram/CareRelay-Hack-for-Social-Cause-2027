@@ -104,3 +104,15 @@ An additional static lint scan is **not clean**. The source-only scan reports 67
 The release uses the same prototype URL embedded in the submitted PPT. The submitted PPT itself is unchanged. Public judge access remains confined to session-isolated fictional records; the registered-account care network retains separate authentication.
 
 The publishing service returns the final source revision and deployment result. The delivery message reports the post-publication browser result. A readiness statement means ready for **hackathon demonstration/submission within these documented limits**, not a claim that the application is bug-free or ready for unsupervised clinical deployment.
+
+## Public-package security follow-up · 24 October 2026
+
+The public repository's first independent Ubuntu CI run passed npm installation, type checking, all 114 tests, production build and the API suite. Its final dependency audit found advisory updates affecting Zod and Undici, superseding the earlier point-in-time zero-vulnerability scan.
+
+Patched to **Zod 4.6.7** and **Undici 7.30.1**. Zod's record schemas now explicitly declare string keys (`z.record(z.string(), z.unknown())`) as required by the v4 API. No matching objective, candidate eligibility rule, milestone policy or solver implementation was changed.
+
+After that patch, local type checking, 114 tests, production build and **402 standard-mode API checks** passed. The earlier 414-check run included browser-UI fixture setup checks; standard-mode CI runs do not add those fixtures. A fresh dependency advisory scan returned zero known vulnerabilities. This remains a point-in-time result, not proof against unknown issues.
+
+Sources: [Zod advisory](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5), [Undici advisory](https://github.com/advisories/GHSA-xjj6-f33q-929c), [Zod migration guide](https://zod.dev/v4/changelog).
+
+The original release revision recorded above is historical; the dependency-patched publication's revision and deployment are reported in the delivery message. The public repository is https://github.com/Aadithya-Ram/CareRelay-Baloon-Hackathon and retains explicit development provenance.

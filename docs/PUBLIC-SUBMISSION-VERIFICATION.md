@@ -25,3 +25,7 @@ Tracked source filenames and text were checked for environment/database/private-
 MIT and third-party notices are retained. The README includes a judge walkthrough, workflow and architecture diagrams, expected-impact qualifications, implementation boundaries and a future roadmap beyond dialysis. Existing application code, matching priorities and runtime dependencies were not changed for this packaging update.
 
 See [the final pipeline audit](FINAL-SUBMISSION-AUDIT-2026-10-24.md) for 414 API checks, dependency security results, hosted browser walkthroughs and remaining clinical/code-quality limitations. They are prior engineering verification results rather than clinical outcomes or proof of universal bug absence.
+
+## Dependency recheck after publication
+
+An anonymous Git clone (credential helper disabled, no GitHub login) successfully downloaded the public snapshot. The initial public GitHub Actions run independently passed install, type checking, 114 tests, production build and API checks on Ubuntu; the advisory scan failed after updated dependency advisories. Patched Zod to 4.6.7 and Undici to 7.30.1, with only the required record-schema syntax adjustments. Local type checking, 114 tests, production build and 402 standard-mode API checks passed afterward; the current advisory scan reports zero known vulnerabilities. Matching logic is unchanged. The final remote CI result is reported separately after its run completes.

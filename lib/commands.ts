@@ -5,7 +5,7 @@ import {patientAction,finishEpisode} from './patient-actions';
 
 export class DomainError extends Error {constructor(message: string,public status=400){super(message);}}
 export interface Actor {role: Role; entity: string; label: string}
-const commandSchema=z.object({type:z.enum(["plan","reset","incident","facility","slot","route","vehicle","patient","verify_patient","transition","message","approve_message","advance","agreement","patient_progress","support_create","support_reply","support_status","support_read"]),payload:z.record(z.unknown()).default({})});
+const commandSchema=z.object({type:z.enum(["plan","reset","incident","facility","slot","route","vehicle","patient","verify_patient","transition","message","approve_message","advance","agreement","patient_progress","support_create","support_reply","support_status","support_read"]),payload:z.record(z.string(),z.unknown()).default({})});
 export const serviceDate=z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(s=>!isNaN(Date.parse(s))&&new Date(s+'T00:00:00Z').toISOString().slice(0,10)===s,'Choose a valid calendar date');
 export const timeZoneSchema=z.string().max(80).refine(s=>{try{new Intl.DateTimeFormat('en',{timeZone:s});return true;}catch{return false;}},'Choose a valid timezone').transform(canonicalZone);
 const minute=z.number().int().min(0).max(1439);

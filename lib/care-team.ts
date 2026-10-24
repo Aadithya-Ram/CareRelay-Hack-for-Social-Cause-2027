@@ -4,7 +4,7 @@ import {District,Assignment,committedStages,activeRequest,requestTimeProblem,ser
 import {command,DomainError,Actor,serviceDate} from './commands';
 import {solve,enumerate,fits} from './solver';
 import {loadDemoProviders} from './demo-providers';
-export function careAction(d:District,input:unknown,actor:Actor){const b=z.object({action:z.enum(['prepare_demo','reschedule_request','load_demo_providers','suggest','approve_plan','verify','command','archive_patient','restore_patient','options','suggest_patient']),payload:z.record(z.unknown()).default({})}).parse(input),p=b.payload;
+export function careAction(d:District,input:unknown,actor:Actor){const b=z.object({action:z.enum(['prepare_demo','reschedule_request','load_demo_providers','suggest','approve_plan','verify','command','archive_patient','restore_patient','options','suggest_patient']),payload:z.record(z.string(),z.unknown()).default({})}).parse(input),p=b.payload;
  if(actor.role!=='coordinator')throw new DomainError('Admin access required.',403);
  if(b.action==='reschedule_request'){
   const fields=z.object({id:z.string(),date:serviceDate,preferredTime:z.number().int().min(0).max(1439),earliest:z.number().int().min(0).max(1439),deadline:z.number().int().min(0).max(1439),patientAgreed:z.literal(true)}).parse(p);

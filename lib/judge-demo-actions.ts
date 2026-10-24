@@ -4,9 +4,9 @@ import {command,DomainError,serviceDate,timeZoneSchema} from './commands';
 
 // These actions operate only after /api/demo resolves its session-owned fictional district.
 export function judgeRoleAction(d:District,input:unknown):District{
- const b=z.object({action:z.enum(['role_command','demo_request']),payload:z.record(z.unknown())}).parse(input);
+ const b=z.object({action:z.enum(['role_command','demo_request']),payload:z.record(z.string(),z.unknown())}).parse(input);
  if(b.action==='role_command'){
-  const p=z.object({role:z.enum(['patient','facility','transport']),entity:z.string(),type:z.enum(['transition','patient_progress']),data:z.record(z.unknown())}).parse(b.payload);
+  const p=z.object({role:z.enum(['patient','facility','transport']),entity:z.string(),type:z.enum(['transition','patient_progress']),data:z.record(z.string(),z.unknown())}).parse(b.payload);
   const person=p.role==='patient'?d.patients.find(x=>x.id===p.entity):p.role==='facility'?d.facilities.find(x=>x.id===p.entity):d.vehicles.find(x=>x.id===p.entity);
   if(!person)throw new DomainError('Choose a demo participant.',404);
   if((p.role==='patient')!==(p.type==='patient_progress'))throw new DomainError('This action is not available for this perspective.',403);
