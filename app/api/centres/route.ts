@@ -1,0 +1,4 @@
+import {db,district,Account} from '@/lib/accounts';
+import {fresh,liveStages} from '@/lib/domain';
+export const dynamic='force-dynamic';
+export async function GET(){const a={id:'public-directory',role:'patient'} as Account;const c=await district('active',a);const rows=await db().prepare("SELECT entity FROM accounts WHERE role='facility' AND status='active'").all<{entity:string}>();const centres=c.data.facilities.filter(f=>rows.results.some(r=>r.entity===f.id)).map(f=>({id:f.id,name:f.name,address:f.address,city:f.city,location:f.location,phone:f.phone,availableSlots:c.data.slots.filter(s=>s.facility===f.id&&s.active&&s.staffed&&s.start>c.data.now&&f.open&&f.utilities&&fresh(c.data,f)&&!c.data.assignments.some(a=>a.slot===s.id&&liveStages.includes(a.stage))).length}));return Response.json({centres},{headers:{'Cache-Control':'no-store'}});}

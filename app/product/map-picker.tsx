@@ -1,0 +1,11 @@
+'use client';
+import {useEffect,useRef,useState} from 'react';
+import type {Geo} from '@/lib/domain';
+import type {Map,CircleMarker} from 'leaflet';
+export function MapPicker({point,onPick,results=[]}:{point?:Geo;onPick:(p:Geo)=>void;results?:{name:string;location:Geo}[]}){
+ const host=useRef<HTMLDivElement>(null),map=useRef<Map|null>(null),marker=useRef<CircleMarker|null>(null),choose=useRef(onPick),[ready,setReady]=useState(false),[error,setError]=useState('');choose.current=onPick;
+ useEffect(()=>{let cancelled=false;import('leaflet').then(L=>{if(cancelled||!host.current)return;const m=L.map(host.current,{scrollWheelZoom:false,worldCopyJump:true}).setView(point?[point.lat,point.lng]:[20,0],point?12:2);map.current=m;L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(m);m.on('click',e=>choose.current({lat:Math.max(-85,Math.min(85,e.latlng.lat)),lng:((e.latlng.lng+180)%360+360)%360-180}));setReady(true);}).catch(()=>setError('Map could not load. Enter a city or coordinates instead.'));return()=>{cancelled=true;map.current?.remove();map.current=null;};},[]);
+ useEffect(()=>{if(!ready||!map.current||!point)return;import('leaflet').then(L=>{if(!map.current)return;marker.current?.remove();marker.current=L.circleMarker([point.lat,point.lng],{radius:9,color:'#234e41',fillColor:'#8ba784',fillOpacity:1}).addTo(map.current).bindTooltip('Your selected search location');map.current.setView([point.lat,point.lng],Math.max(map.current.getZoom(),12));});},[point,ready]);
+ useEffect(()=>{if(!ready||!map.current)return;let items:CircleMarker[]=[];import('leaflet').then(L=>{if(!map.current)return;items=results.map(r=>{const label=document.createElement('span');label.textContent=r.name;return L.circleMarker([r.location.lat,r.location.lng],{radius:7,color:'#a56e40',fillOpacity:.8}).addTo(map.current!).bindTooltip(label);});});return()=>{items.forEach(x=>x.remove());};},[results,ready]);
+ return <div className="map-picker"><div ref={host} role="region" aria-label="World map: click to choose a location" className="leaflet-picker"/><small>Click or tap the map to select a location. Drag to move; use + / − to zoom. Loading shares the viewed map area with OpenStreetMap.</small>{error&&<p role="alert">{error}</p>}</div>;
+}

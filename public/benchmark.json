@@ -1,0 +1,335 @@
+{
+  "generatedAt": "2026-10-10T15:20:24.658Z",
+  "dataset": "30 fictional patients, 3 facilities, 12 vehicles; scenario date 2026-10-17",
+  "algorithm": "Discrete constraint search with greedy incumbent; 180 ms search budget and 40,000 node cap; not OR-Tools",
+  "objective": "maximize feasible patients, then staff-specified urgency, then minimize cost/time",
+  "limitations": "These are model results, not clinical outcomes; simulated journeys; individual trips; no global-optimality claim for search-limited rows",
+  "rows": [
+    {
+      "scenario": "Initial district with stale Greenfield report",
+      "feasible": 20,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 10,
+      "violations": 0,
+      "runtimeMs": 202.5,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 20,
+      "nearestViolations": 28,
+      "changedCommitments": 0,
+      "barriers": {
+        "verification": 8,
+        "capacity": 2
+      },
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 20,
+        "after": 20,
+        "delta": 0,
+        "patients": [
+          "P26"
+        ],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 20,
+        "after": 24,
+        "delta": 4,
+        "patients": [
+          "P02",
+          "P03",
+          "P08",
+          "P15"
+        ],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    },
+    {
+      "scenario": "All capacity verified",
+      "feasible": 24,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 6,
+      "violations": 0,
+      "runtimeMs": 199.3,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 24,
+      "nearestViolations": 28,
+      "changedCommitments": 0,
+      "barriers": {
+        "capacity": 6
+      },
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 24,
+        "after": 26,
+        "delta": 2,
+        "patients": [
+          "P26",
+          "P20"
+        ],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 24,
+        "after": 24,
+        "delta": 0,
+        "patients": [],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    },
+    {
+      "scenario": "Riverside facility closed",
+      "feasible": 20,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 10,
+      "violations": 0,
+      "runtimeMs": 202.1,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 20,
+      "nearestViolations": 28,
+      "changedCommitments": 0,
+      "barriers": {
+        "capacity": 10
+      },
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 20,
+        "after": 20,
+        "delta": 0,
+        "patients": [
+          "P26"
+        ],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 20,
+        "after": 20,
+        "delta": 0,
+        "patients": [],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    },
+    {
+      "scenario": "Riverside machine M1 broken",
+      "feasible": 24,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 6,
+      "violations": 0,
+      "runtimeMs": 279.8,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 24,
+      "nearestViolations": 28,
+      "changedCommitments": 0,
+      "barriers": {
+        "capacity": 6
+      },
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 24,
+        "after": 26,
+        "delta": 2,
+        "patients": [
+          "P26",
+          "P18"
+        ],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 24,
+        "after": 24,
+        "delta": 0,
+        "patients": [],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    },
+    {
+      "scenario": "Accessible van cancellation",
+      "feasible": 22,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 8,
+      "violations": 0,
+      "runtimeMs": 270,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 22,
+      "nearestViolations": 28,
+      "changedCommitments": 0,
+      "barriers": {
+        "capacity": 8
+      },
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 22,
+        "after": 24,
+        "delta": 2,
+        "patients": [
+          "P06",
+          "P11"
+        ],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 22,
+        "after": 22,
+        "delta": 0,
+        "patients": [],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    },
+    {
+      "scenario": "Fundamental capacity shortage",
+      "feasible": 6,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 24,
+      "violations": 0,
+      "runtimeMs": 389.8,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 6,
+      "nearestViolations": 28,
+      "changedCommitments": 0,
+      "barriers": {
+        "capacity": 24
+      },
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 6,
+        "after": 6,
+        "delta": 0,
+        "patients": [],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 6,
+        "after": 6,
+        "delta": 0,
+        "patients": [],
+        "status": "Feasible plan · search limit reached",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    },
+    {
+      "scenario": "No operational facilities",
+      "feasible": 0,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 30,
+      "violations": 0,
+      "runtimeMs": 1.2,
+      "status": "Optimal for this discrete model",
+      "baseline": 0,
+      "nearestViolations": 0,
+      "changedCommitments": 0,
+      "barriers": {
+        "accessibility": 6,
+        "slot": 24
+      },
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 0,
+        "after": 0,
+        "delta": 0,
+        "patients": [],
+        "status": "Optimal for this discrete model",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 0,
+        "after": 0,
+        "delta": 0,
+        "patients": [],
+        "status": "Optimal for this discrete model",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    },
+    {
+      "scenario": "Constructed flexible-versus-isolation scheduling case",
+      "feasible": 2,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 0,
+      "violations": 0,
+      "runtimeMs": 0.6,
+      "status": "Optimal for this discrete model",
+      "baseline": 1,
+      "nearestViolations": 1,
+      "changedCommitments": 0,
+      "barriers": {},
+      "accessibleVehicle": {
+        "kind": "vehicle",
+        "before": 2,
+        "after": 2,
+        "delta": 0,
+        "patients": [],
+        "status": "Optimal for this discrete model",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      },
+      "verification": {
+        "kind": "verify",
+        "before": 2,
+        "after": 2,
+        "delta": 0,
+        "patients": [],
+        "status": "Optimal for this discrete model",
+        "disclaimer": "Simulated upper-bound resource assumption. A provider or facility must confirm the actual resource before it can be used."
+      }
+    }
+  ],
+  "replanningAblation": {
+    "preserved": {
+      "feasible": 22,
+      "accepted": 7,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 8,
+      "violations": 0,
+      "runtimeMs": 232.4,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 22,
+      "nearestViolations": 22,
+      "changedCommitments": 1
+    },
+    "withoutPreservation": {
+      "feasible": 22,
+      "accepted": 0,
+      "transportConfirmed": 0,
+      "completed": 0,
+      "unresolved": 8,
+      "violations": 0,
+      "runtimeMs": 273.5,
+      "status": "Feasible plan · search limit reached",
+      "baseline": 22,
+      "nearestViolations": 28,
+      "changedCommitments": 8
+    }
+  }
+}
