@@ -115,20 +115,7 @@ Routine operational checks do not attest clinical review. Flagged urgent/time-se
 
 ## Architecture
 
-```mermaid
-flowchart TB
-    UI["React and TypeScript role workspaces"] --> API["Workers API routes"]
-    API --> AUTH["Account sessions, role and relationship checks"]
-    AUTH --> VALIDATE["Zod validation and scoped actions"]
-    VALIDATE --> DOMAIN["Requests, milestones and shared inbox"]
-    VALIDATE --> SOLVER["Candidates and constraint search"]
-    DOMAIN --> CAS["Revision-checked atomic update"]
-    SOLVER --> CAS
-    CAS --> D1[("D1 / local SQLite")]
-    AUTH --> DOCS["Authorized document access"]
-    DOCS --> R2[("R2 / local object storage")]
-    UI --> MAPS["Opt-in OpenStreetMap / Leaflet lookup"]
-```
+![CareRelay application architecture](docs/assets/hsc-architecture.svg)
 
 | Layer | Stack |
 | --- | --- |
