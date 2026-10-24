@@ -1,7 +1,7 @@
 <p align="center"><img src="docs/assets/carerelay-banner.svg" alt="CareRelay — Keep care moving. People, treatment and transport." width="100%" /></p>
-<h1 align="center">CareRelay · Baloon National Hackathon 2026</h1>
+<h1 align="center">CareRelay · Hack for Social Cause 2027</h1>
 <p align="center"><strong>A treatment slot is only useful if the patient can reach it.</strong><br />Connecting dialysis availability, accessible transport and care-team coordination in one accountable journey.</p>
-<p align="center"><a href="https://carerelay-dialysis-continuity.amplewand1.chatgpt.site/judge-demo"><strong>Try the interactive prototype</strong></a> · <a href="docs/presentation/Baloon%20National%20Hackathon%202026%20submission.pptx">Submission PPT</a> · <a href="docs/QUICKSTART.md">Run locally</a> · <a href="docs/ARCHITECTURE.md">Architecture</a> · <a href="docs/FINAL-SUBMISSION-AUDIT-2026-10-24.md">Verification report</a></p>
+<p align="center"><a href="https://carerelay-dialysis-continuity.amplewand1.chatgpt.site/judge-demo"><strong>Try the interactive prototype</strong></a> · <a href="docs/HSC-REVIEWER-GUIDE.md">HSC reviewer guide</a> · <a href="docs/QUICKSTART.md">Run locally</a> · <a href="docs/ARCHITECTURE.md">Architecture</a> · <a href="docs/FINAL-SUBMISSION-AUDIT-2026-10-24.md">Verification report</a></p>
 <p align="center"><a href="LICENSE"><img alt="MIT licensed" src="https://img.shields.io/badge/License-MIT-426453?style=flat-square" /></a> <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.9-3178c6?style=flat-square" /> <img alt="React" src="https://img.shields.io/badge/React-19-315b65?style=flat-square" /> <img alt="Cloudflare Workers and D1" src="https://img.shields.io/badge/Cloudflare-Workers%20%2B%20D1-f38020?style=flat-square" /> <img alt="Hackathon prototype" src="https://img.shields.io/badge/Status-Hackathon%20prototype-426453?style=flat-square" /></p>
 
 ## The problem: disrupted care becomes a coordination crisis
@@ -69,6 +69,37 @@ flowchart LR
 
 *Prototype browser capture using fictional records; captures may precede the latest UI refinements.*
 
+## Built around the HSC social-cause brief
+
+**Theme:** Healthcare, Wellbeing & Service Delivery. **Proposed local focus:** Coimbatore and surrounding communities in Tamil Nadu. **Intended beneficiaries:** patients with disrupted dialysis appointments, caregivers, older adults and wheelchair users, alongside care coordinators and participating providers.
+
+This proposal supports **SDG 3.8** (access to essential healthcare) and **SDG 10.2** (inclusion irrespective of age or disability). It does not claim measured progress against national SDG indicators. The government's dialysis-access programme already exists; CareRelay proposes a complementary coordination layer, not a replacement, affiliation or existing integration.
+
+| HSC evaluation criterion | What reviewers can inspect |
+| --- | --- |
+| Relevance | A local treatment-and-transport coordination scenario, defined beneficiaries and a proposed supervised pilot. |
+| Technical strength | Complete TypeScript source, architecture/sequence diagrams, tests, revision checks and authenticated record scope. |
+| Functionality | Manual and automatic assignment, exact machine/slot handover, provider confirmations, messaging, progress and history. |
+| Creativity / innovation potential | Coordinating the treatment slot and accessible journey as one accountable arrangement, rather than only listing centres. No global novelty claim. |
+| Social-cause impact | A proposed evaluation of confirmation time, completed arrangements and patient coordination burden; no invented outcome numbers. |
+| Presentation / team synergy | A five-minute walkthrough, annotated screenshots and explicit guidance for contribution/AI disclosures. |
+
+### A practical pilot, before any impact claim
+
+The proposed starting point is a small, coordinator-led partnership in Coimbatore: verify requirements with clinicians, onboard willing centres and drivers, compare against the existing coordination process, and evaluate a supervised pilot only after appropriate privacy and clinical approvals. **No hospital partnership, patient recruitment or field outcome is claimed.**
+
+| Proposed measure | How a pilot would assess it |
+| --- | --- |
+| Time to full provider confirmation | Median elapsed time from request submission to all required confirmations, compared with a documented baseline. |
+| Compatible arrangement rate | Valid requests receiving a suitable arrangement, with unresolved reasons retained. |
+| Completion and cancellation | Completed, cancelled and unresolved episodes reported separately; no assumption that approval equals treatment. |
+| Accessibility failures | Review reasons for rejected routes/vehicles and caregiver/assistance mismatches. |
+| Coordination burden | Consented feedback from patients, caregivers and care teams, including time/calls spent. |
+
+A possible sustainability model is institution-supported hosting and onboarding, retaining open-source reuse. It is a proposal, not an implemented revenue model or promise of free clinical treatment. Tamil-language interfaces, assisted/low-connectivity workflows, road-routing and health-system integrations remain future work. Existing prototype scale bounds and security/clinical limits are documented in the audit.
+
+[HSC reviewer guide](docs/HSC-REVIEWER-GUIDE.md) · [Submission answers](docs/HSC-FORM-ANSWERS.md) · [Research and sources](docs/HSC-RESEARCH.md) · [Screenshots](docs/HSC-SCREENSHOTS.md)
+
 ## Matching: compatibility before convenience
 
 The planner is a **bounded TypeScript constraint search**, not a diagnosis model or a claim of AI clinical decision-making.
@@ -119,8 +150,8 @@ flowchart TB
 **Command line, Windows/macOS/Linux:**
 
 ```sh
-git clone https://github.com/Aadithya-Ram/CareRelay-Baloon-Hackathon.git
-cd CareRelay-Baloon-Hackathon
+git clone https://github.com/Aadithya-Ram/CareRelay-Hack-for-Social-Cause-2027.git
+cd CareRelay-Hack-for-Social-Cause-2027
 node scripts/start-local.mjs --no-open
 ```
 
@@ -130,13 +161,13 @@ The launcher installs/builds on first use; it is not a preinstalled desktop exec
 
 ## Verification and feasibility
 
-Recorded final audit, **24 October 2026**:
+Recorded engineering verification, **24 October 2026** (standard API mode; the earlier 414-check run also prepared browser fixtures):
 
 | Check | Recorded result |
 | --- | --- |
 | Domain and manual-picker tests | **114 passed** |
 | Request permutation matrix | **864 combinations** within the tests |
-| Isolated account/API checks | **414 passed** |
+| Isolated account/API checks | **402 passed in standard mode** |
 | Constraint benchmark | **8 scenarios, zero constraint violations** |
 | Type checking and production build | **Passed** |
 | Dependency advisory scan | **Zero known vulnerabilities reported** at scan time |
@@ -172,14 +203,16 @@ Future scope is a roadmap, not implemented functionality. This prototype is not 
 
 ## Project resources
 
-- [Round 1 submission PPT](docs/presentation/Baloon%20National%20Hackathon%202026%20submission.pptx) · [Project presentation](docs/presentation/CareRelay-Presentation.pptx) · [Demo video](docs/presentation/CareRelay-Demo.mp4)
+- **Earlier event material, not the HSC-required slide deck:** [Baloon submission PPT](docs/presentation/Baloon%20National%20Hackathon%202026%20submission.pptx) · [Project presentation](docs/presentation/CareRelay-Presentation.pptx) · [Demo video](docs/presentation/CareRelay-Demo.mp4)
 - [User guide](docs/USER-GUIDE.md) · [Architecture](docs/ARCHITECTURE.md) · [Quick start](docs/QUICKSTART.md)
 - [Final audit](docs/FINAL-SUBMISSION-AUDIT-2026-10-24.md) · [Benchmark evidence](output/evidence/benchmark.md)
 - [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
 ## Submission provenance and license
 
-This is a **24 October 2026 submission snapshot** of an existing CareRelay prototype, not a claim that development occurred only on that date or within a 24-hour event. Development began on **10 October 2026**, with AI assistance in Codex. The original development repository is `Aadithya-Ram/carerelay-dialysis-connect`; its access is managed separately. Check the competition's pre-existing-work and AI-disclosure rules.
+This HSC repository packages an **existing CareRelay prototype**. Development began on **10 October 2026**, with substantial AI assistance in Codex. The project was previously submitted to **Baloon National Hackathon 2026** and published in `Aadithya-Ram/CareRelay-Baloon-Hackathon`; the earlier development repository is `Aadithya-Ram/carerelay-dialysis-connect`. This repository's creation date is not a claim of a one-day build. No award is claimed.
+
+HSC requires prior publication/submission and AI-use disclosures. See [the disclosure record](docs/HSC-DISCLOSURES.md); contributors must confirm their own quantitative AI-assistance estimate and team details for the mandatory presentation/declaration. This repository is not a signed eligibility or originality declaration. The shared hosted demo may retain an earlier event caption; the same working application is used for evaluation.
 
 [MIT License](LICENSE) © 2026 Aadithya Ram and CareRelay contributors. You may use, modify, fork and redistribute the code under its terms. Third-party components retain their respective licenses. The license provides software permissions; it does not certify medical safety or legal compliance.
 
